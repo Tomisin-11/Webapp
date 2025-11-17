@@ -1,0 +1,27 @@
+     <div
+      className="wrapBox"
+      onMouseEnter={() => setShowNav(true)}
+      onMouseLeave={() => setShowNav(false)}
+    >
+      {showNav && (
+        <button className="navBtn prevBtn" onClick={handlePrev}>
+          &#10094;
+        </button>
+      )}
+
+      <div className="itemHolder">
+        {currentItems.map((product, index) => (
+          <div className="itemCard" key={index}>
+            <img src={product.img} alt={product.title} />
+            <div className="hoverLayer">
+              <h2>{product.title}</h2>
+              <button>SHOP NOW</button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {showNav && (
+        <button className="navBtn nextBtn" onClick={handleNext}>
+          &#10095;
+        </button>

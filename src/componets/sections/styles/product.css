@@ -1,0 +1,225 @@
+.wrapBox {
+     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.itemHolder {
+     margin-left: 80px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: nowrap;
+    width: 100%; /* container width */
+    overflow: hidden; /* hide the sliding overflow */
+}
+
+.itemCard {
+     
+    margin-left: 25px;
+    width: 230px;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform .3s;
+}
+
+.itemCard:hover {
+    transform: scale(1.03);
+    border-radius: 12px;
+}
+
+.itemCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fafafa;
+}
+
+.hoverLayer {
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.hoverLayer h2 {
+    color: white;
+    font-size: 26px;
+    text-align: center;
+}
+
+.hoverLayer button{
+    margin-top: 275px;
+    height: 35px;
+    width: 100px;
+    cursor: pointer;
+ background: transparent;
+  border: 2px solid #1fe6a8;
+  color: #1fe6a8;
+  border-radius: 6px;
+  font-weight: 600;
+ 
+    border-radius: 12px;
+}
+
+.itemCard:hover .hoverLayer {
+    opacity: 1;
+    border-radius: 12px;
+}
+
+.navBtn {
+    background: #01c081;
+    color: white;
+    border: none;
+    font-size: 25px;
+    width: 60px;
+  
+    height: 50px;
+    border-radius: 90px;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.navBtn:hover {
+    background: #009a67;
+}
+
+.prevBtn {
+       margin-left: 10px;
+    margin-right: -81px;
+}
+
+.nextBtn {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* ========================== */
+/* RESPONSIVE CARD SLIDER */
+/* ========================== */
+/* ========================== */
+/* SMALL SCREEN CARD SLIDER (≤600px) */
+/* ========================== */
+@media screen and (max-width: 600px) {
+
+    .wrapBox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        overflow: hidden;
+        scroll-snap-type: x mandatory;
+        width: 100%;
+    }
+
+    .itemHolder {
+        margin-left: -0px;
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .itemCard {
+        flex: 0 0 100%; /* 1 item per page */
+        scroll-snap-align: start;
+        margin-left: 0;
+        width: 100%;
+        height: 420px;        /* FIX — maintain height */
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .itemCard img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;  /* FIX — show full image */
+        background: #fafafa;
+    }
+
+    /* HOVER OVERLAY */
+    .hoverLayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 20px;
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+    .itemCard:hover .hoverLayer {
+        opacity: 1;
+    }
+
+    .hoverLayer h2 {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .hoverLayer button {
+        width: 120px;
+        height: 38px;
+        border: 2px solid #1fe6a8;
+        color: #1fe6a8;
+        background: transparent;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    /* FIX NAV BUTTONS */
+    .navBtn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+        z-index: 30;
+        border-radius: 50%;
+    }
+
+    .prevBtn {
+        left: 5px;
+    }
+
+    .nextBtn {
+        right: 5px;
+    }
+
+    /* Hide scrollbar for mobile */
+    .itemHolder::-webkit-scrollbar {
+        display: none;
+    }
+    .itemHolder {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

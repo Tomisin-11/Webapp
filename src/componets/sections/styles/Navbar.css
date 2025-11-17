@@ -1,0 +1,344 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+nav{
+    margin-top: -25px;
+    height: 100px;
+    
+}
+
+/* Navbar wrapper */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+
+    background: none;         /* default (top of page) */
+    transition: background 0.3s ease,
+                box-shadow 0.3s ease,
+                backdrop-filter 0.3s ease;
+}
+
+/* When user scrolls */
+.navbar-container.scrolled {
+    background: rgba(34, 34, 34, 0.95);   /* show dark background */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(100px);          /* slight blur for modern effect */
+}
+
+
+.navbar{
+    display: flex;
+}/* Existing Styles (using .navbar as a parent) */
+.navbar ul{
+    display: flex;
+    gap: 15px;
+    margin-left: 750px;
+    margin-top: 49px;
+    color: white;
+    /* You might want to remove default padding/margin from the main ul */
+    list-style: none; 
+    padding: 0;
+}
+
+.navbar ul li{
+    align-items: center;
+    text-decoration: none;
+    display: flex;
+    /* 🔑 FIX: This anchors the absolute dropdown to the correct parent <li> */
+    position: relative; 
+    /* Important for aligning the text/svg */
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------- */
+/* ✨ DROPDOWN STYLES ADDED BELOW ✨ */
+/* ----------------------------------------------------- */
+
+.navbar .dropdown-menu {
+    /* 1. Hides the dropdown initially */
+    display: none; 
+    
+    /* 2. Positions the dropdown relative to its parent <li> */
+    position: absolute;
+    top: 100%; /* Positions it right below the main menu item */
+    left: 0;
+    
+    /* 3. Styling for the dropdown box itself */
+    background-color: #333; /* A contrasting background color */
+    min-width: 150px; /* Ensures it's wide enough */
+    z-index: 10; /* Ensures it appears over other content */
+    
+    /* Removes list styling from the dropdown menu */
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    
+    /* Changes the flex-direction back to column for the dropdown items */
+    flex-direction: column; 
+
+      position: absolute; 
+  top: calc(10px + 12px); /* below the menu item */
+   left: -10px;
+    margin-left: 10px;
+     min-width: 160px;
+      background: #ffffff;
+       color: #000000;
+        padding: 12px;
+         border-radius: 8px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+           display: none; /* hidden by default */ 
+           flex-direction: column;
+            gap: 10px;
+             z-index: 50; /* be above other content */ 
+             pointer-events: auto;
+}
+
+/* Dropdown menu default state */
+.navbar .dropdown-menu {
+    opacity: 0;              /* Start hidden */
+    transform: translateY(-10px); /* Slightly move up */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    pointer-events: none;    /* Prevent interaction when hidden */
+     
+}
+
+/* When hovering the parent li */
+.navbar li.has-dropdown:hover > .dropdown-menu {
+    opacity: 1;              /* Fade in */
+    transform: translateY(0); /* Slide down */
+    pointer-events: auto;    /* Enable interaction */
+}
+
+
+.navbar .dropdown-menu li {
+    /* Resets the flex/align from the parent li */
+    display: block; 
+    padding: 8px 15px;
+    white-space: nowrap; /* Prevents text from wrapping */
+    
+    /* Ensures dropdown items are full width */
+    
+}
+
+.navbar .dropdown-menu li:hover {
+    background: #f2f2f2; /* Highlight effect on hover */
+}
+
+/* 4. KEY: Shows the dropdown when the PARENT <li> is hovered */
+/* This targets the .dropdown-menu that is a child of the hovered <li> */
+.navbar li.has-dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Existing H1 Styles */
+.navbar h1{
+    position: absolute;
+}
+
+h1{
+    margin-top: 40px;
+    color: white;
+    margin-left: 100px;
+}
+
+
+/* Hamburger menu bars */
+.hamburger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+ .close-btn{
+    display: none;
+    }
+
+    .sidebar  {
+        display: none;
+    }
+
+/* Show hamburger on mobile */
+@media screen and (max-width: 600px) {
+    .hamburger {
+        display: flex;
+        margin-top: -50px;
+        margin-bottom: 30px;
+    }
+
+    /* Hide the nav links by default */
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Show the nav links when menuOpen is true */
+    .navbar ul.open {
+        
+        display: none;
+    }
+}
+
+
+
+/* ======================================================= */
+/* --- RESPONSIVENESS (Media Queries) --- */
+/* ======================================================= */
+
+/* --- 1. Tablet View (e.g., screens 900px and smaller) --- */
+@media screen and (max-width: 900px) {
+    /* Adjust margin to center the menu or give it space */
+    .navbar ul {
+        /* Reset large left margin and center the list */
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+        padding: 0 15px; /* Add some padding on the sides */
+        flex-wrap: wrap; /* Allow menu items to wrap if needed */
+    }
+
+    /* Adjust the logo position */
+    h1 {
+        margin-left: 20px; /* Bring the logo closer to the edge */
+    }
+}
+
+/* --- 2. Mobile View (e.g., screens 600px and smaller) --- */
+@media screen and (max-width: 600px) {
+    nav {
+        height: auto; /* Allow nav height to expand */
+        padding-bottom: 10px;
+    }
+
+    .navbar {
+        /* Stack logo and menu vertically */
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+    
+    .navbar h1 {
+        /* Reset absolute positioning for H1 on mobile */
+        position: static;
+        margin-top: px;
+        margin-left: 20px;
+    }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    body {
+        cursor: pointer;
+    }
+  
+/* Hamburger */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger .open1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger .open2 {
+    opacity: 0;
+}
+
+.hamburger .open3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 1;
+    right: -100%;
+    width: 350px;
+    height: 800px;
+    background: #222222;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    transition: right 0.3s ease;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar .close-btn {
+    font-size: 30px;
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar ul li span {
+    font-size: 20px;
+}
+
+/* Dropdown inside sidebar */
+.sidebar ul li .dropdown {
+    list-style: none;
+
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.sidebar ul li .dropdown li:hover {
+    padding: 10px 0;
+    border-bottom: none;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.sidebar ul li .dropdown li:hover {
+    
+    color: #ff0000;
+}
+
+}
