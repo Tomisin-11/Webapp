@@ -1,8 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
-import "./styles/Navbar.css";
- import "./styles/herosection.css";
-  import "./styles/product.css";
+ 
 import 'aos/dist/aos.css';
 
 const router = createBrowserRouter([
