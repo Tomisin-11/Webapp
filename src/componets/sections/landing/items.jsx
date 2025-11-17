@@ -60,7 +60,7 @@ const ProductSlider = () => {
       >
         {/* Nav Buttons always visible on mobile */}
         {(showNav || isMobile) && (
-          <button className="slider-nav prev-nav" onClick={handlePrev}>
+          <button data-aos="fade-right" className="slider-nav prev-nav" onClick={handlePrev}>
             &#10094;
           </button>
         )}
@@ -96,7 +96,7 @@ const ProductSlider = () => {
         </div>
 
         {(showNav || isMobile) && (
-          <button className="slider-nav next-nav" onClick={handleNext}>
+          <button data-aos="fade-left" className="slider-nav next-nav" onClick={handleNext}>
             &#10095;
           </button>
         )}

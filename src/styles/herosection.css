@@ -188,9 +188,9 @@
  
 
 /* BACKGROUND IMAGES */
-.bg1 { background-image: url("Herosection.jpg"); }
-.bg2 { background-image: url("Herosection.jpg"); }
-.bg3 { background-image: url("Herosection2.jpg"); }
+.bg1 { background-image: url("../images/Herosection.jpg"); }
+.bg2 { background-image: url("../images/Herosection.jpg"); }
+.bg3 { background-image: url("../images/Herosection2.jpg"); }
 
 /* SLIDE CONTROL */
 #s1:checked ~ .slides { color: #12B07F; margin-left: 0; }

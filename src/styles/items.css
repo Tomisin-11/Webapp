@@ -248,11 +248,5 @@
  /* NAV BUTTONS FIX FOR MOBILE */ .prev-nav, .next-nav { display: flex; /* always visible */ justify-content: center; align-items: center; position: absolute; top: 50%; transform: translateY(-50%); z-index: 50; width: 45px; height: 45px; font-size: 22px; border-radius: 50%; background: #12B07F; color: white; cursor: pointer; } .prev-nav { left: -10px; } .next-nav { right: 10px; }
 
   /* Hide mobile scrollbar */
-  .slider-track::-webkit-scrollbar {
-      display: none;
-  }
-  .slider-track {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-  }
+  
 }
