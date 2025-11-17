@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../styles/herosection.css";
+ 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
