@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
-import "./componets/sections/styles/herosection.css";
- import "./componets/sections/styles/Navbar.css";
-  import "./componets/sections/styles/product.css";
+import "./styles/Navbar.css";
+ import "./styles/herosection.css";
+  import "./styles/product.css";
 import 'aos/dist/aos.css';
 
 const router = createBrowserRouter([
