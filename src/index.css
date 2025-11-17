@@ -1,0 +1,21 @@
+  <div className="countdown">
+                        <div className="count-item">
+                            <h2>{timeLeft.days}</h2>
+                            <span>Days</span>
+                        </div>
+                        <div className="divider"></div>
+                        <div className="count-item">
+                            <h2>{timeLeft.hours}</h2>
+                            <span>Hours</span>
+                        </div>
+                        <div className="divider"></div>
+                        <div className="count-item">
+                            <h2>{timeLeft.minutes}</h2>
+                            <span>Minutes</span>
+                        </div>
+                        <div className="divider"></div>
+                        <div className="count-item">
+                            <h2>{timeLeft.seconds}</h2>
+                            <span>Seconds</span>
+                        </div>
+                    </div>

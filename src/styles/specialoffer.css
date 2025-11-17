@@ -1,0 +1,313 @@
+/* Basic Reset and Variables */
+:root {
+    --page-bg-color: #f7f9fb;
+    --main-action-color: #38c172; /* Green */
+    --main-copy-color: #212529;
+    --secondary-copy-color: #6c757d;
+    --divider-line-color: #dee2e6;
+    --page-font: 'Arial', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--page-font);
+    
+}
+
+/* --- Main Wrapper and Layout --- */
+.offer-page-wrapper {
+    background-color:    #f1f8ff;
+    padding: 50px 0;
+}
+
+.content-display-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    overflow: hidden; 
+}
+
+/* --- Feature Copy Block Styling --- */
+.feature-copy-block {
+    margin-top: -20px;
+    margin-left: 50px;
+    flex-basis: 50%;
+    max-width: 550px;
+    padding-right: 20px;
+}
+
+.intro-tagline {
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--main-copy-color);
+    margin-bottom: 5px;
+}
+
+.werey {
+    margin-left: -0px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--main-copy-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.offer-description {
+    font-size: 1rem;
+    color: var(--secondary-copy-color);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.expiry-notice-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--main-copy-color);
+    margin-bottom: 10px;
+}
+
+/* --- Time Limit Widget Styling (Countdown) --- */
+.time-limit-widget {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.timer-segment {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.timer-segment .segment-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--main-copy-color);
+}
+
+.timer-segment .segment-label {
+    font-size: 0.8rem;
+    color: #12B07F;
+    line-height: 2;
+    text-transform: uppercase;
+}
+
+.divider-mark {
+    font-size: 1.5rem;
+    color: #12B07F;
+    font-weight: 100;
+}
+
+/* --- Action Button Styling --- */
+.action-buy-button {
+    background-color: #12B07F;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+/* Fading dark overlay */
+.action-buy-button::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a1a; /* dark hover color */
+    transition: top 0.35s ease;
+    z-index: 0;
+}
+
+/* Text + arrow container */
+.action-buy-button span {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Arrow hidden initially */
+.action-buy-button span svg {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.action-buy-button:hover::after {
+    top: 0; /* dark bg slides up */
+}
+
+.action-buy-button:hover span svg {
+    opacity: 1;
+    transform: translateX(0); /* arrow slides in */
+}
+
+/* --- Visual Asset Zone Styling (Image) --- */
+.visual-asset-zone {
+    flex-basis: 50%;
+    position: relative;
+    /* Pull the image slightly off-screen to the right as in the original */
+    right: -50px; 
+    align-self: flex-end; 
+}
+
+.visual-asset-zone img {
+    max-width: 100%;
+    height: 515px;
+    max-height: auto;
+    display: block;
+    margin-left: -20px;
+}
+
+/* ===================== */
+/* Tablet: ≤ 992px        */
+/* ===================== */
+@media (max-width: 992px) {
+    .content-display-area {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .feature-copy-block {
+        padding-right: 0;
+        margin-bottom: 40px;
+        margin-left: 0;
+        max-width: 90%;
+    }
+
+    .werey {
+        font-size: 2rem;
+    }
+
+    .offer-description {
+        font-size: 0.95rem;
+    }
+
+    .time-limit-widget {
+        justify-content: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .visual-asset-zone {
+        right: 0;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .visual-asset-zone img {
+        height: auto;
+        max-height: 400px;
+        margin-left: 0;
+    }
+}
+
+/* ===================== */
+/* Mobile: ≤ 768px        */
+/* ===================== */
+@media (max-width: 768px) {
+
+    .werey {
+        font-size: 1.8rem;
+    }
+
+    .intro-tagline {
+        font-size: 1.1rem;
+    }
+
+    .offer-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .time-limit-widget {
+        gap: 12px;
+    }
+
+    .timer-segment .segment-value {
+        font-size: 1.8rem;
+    }
+
+    .timer-segment .segment-label {
+        font-size: 0.7rem;
+    }
+
+    .action-buy-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .visual-asset-zone img {
+        height: 350px;
+    }
+}
+
+/* ===================== */
+/* Small Mobile: ≤ 480px  */
+/* ===================== */
+@media (max-width: 480px) {
+
+     .werey {
+        font-size: 1.5rem;
+    }
+
+    .intro-tagline {
+        font-size: 1rem;
+    }
+
+    .offer-description {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .feature-copy-block {
+        max-width: 100%;
+        margin-left: 0;
+        padding: 0 10px;
+    }
+
+    .visual-asset-zone img {
+        height: 280px;
+        margin-left: 0;
+    }
+
+    /* Keep timer on a single line */
+    .time-limit-widget {
+        flex-direction: row;  /* Keep horizontal */
+        justify-content: center;
+        gap: 12px;            /* spacing between segments */
+        flex-wrap: nowrap;     /* prevent stacking */
+    }
+
+    .timer-segment .segment-value {
+        font-size: 1.5rem;
+    }
+
+    .timer-segment .segment-label {
+        font-size: 0.65rem;
+    }
+
+    .action-buy-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

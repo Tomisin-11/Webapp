@@ -75,25 +75,109 @@
   margin-bottom: 30px;
    margin-left: 100px;
 }
+.btn-group {
+  display: flex;
+  gap: -50px;
+}
 
-.btn-group { display: flex; gap: -20px; }
-
+/* Base button */
 .btn {
-     margin-left: 95px;
+   
+  position: relative;
+  overflow: hidden;
+  margin-left: 95px;
   padding: 15px 35px;
-  background: #1fe6a8;
+  background: #12B07F;
   color: #fff;
   border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+  z-index: 1;
 }
 
+/* Outline version */
 .btn.outline {
   background: transparent;
-  border: 2px solid #1fe6a8;
-  color: #1fe6a8;
-   
+  border: 2px solid #12B07F;
+  color: #12B07F;
+  margin-left: 50px;
 }
+
+/* Fade-up dark overlay */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a;
+  transition: top 0.35s ease;
+  z-index: 0;
+}
+
+.btn:hover::after {
+  top: 0;
+}
+
+/* FIX: Text must be relative & above overlay */
+.btn span {
+  position: relative;
+  z-index: 2;
+  color: inherit;
+}
+
+/* Arrow hidden initially */
+.btn svg {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Show arrow on hover */
+.btn:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* FIX: text + arrow become white on hover */
+.btn:hover,
+.btn:hover span,
+.btn:hover svg path {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
+
+/* Arrow hidden initially */
+.btn svg {
+  opacity: 0;
+  color: #fff !important;
+  stroke: #fff !important;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---- FIX: Text + arrow stays WHITE on hover ---- */
+.btn:hover span,
+.btn:hover svg path {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
 
 /* CHAIR IMAGE */
 .chair img {
@@ -109,7 +193,7 @@
 .bg3 { background-image: url("Herosection2.jpg"); }
 
 /* SLIDE CONTROL */
-#s1:checked ~ .slides { margin-left: 0; }
+#s1:checked ~ .slides { color: #12B07F; margin-left: 0; }
 #s2:checked ~ .slides { margin-left: -100%; }
 #s3:checked ~ .slides { margin-left: -200%; }
 
@@ -134,7 +218,7 @@
 #s1:checked ~ .nav label:nth-child(1),
 #s2:checked ~ .nav label:nth-child(2),
 #s3:checked ~ .nav label:nth-child(3) {
-  background: #1fe6a8;
+  background: #12B07F;
 }
 
 /* RESPONSIVE */
@@ -250,7 +334,15 @@
     .btn {
         padding: 10px 20px;
         font-size: 13px;
+       
     }
+
+    .btn.outline {
+  background: transparent;
+  border: 2px solid #12B07F;
+  color: #12B07F;
+  margin-left: 0px;
+}
 
     .chair img {
         width: 200px;
@@ -270,6 +362,8 @@
         margin-top: 40px;
         margin-left: 0;
     }
+
+    
 }
 
 /* Extra small screens (<360px) */
@@ -296,3 +390,5 @@
         font-size: 14px;
     }
 }
+
+ 

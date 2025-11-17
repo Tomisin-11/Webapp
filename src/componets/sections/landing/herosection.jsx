@@ -68,9 +68,33 @@ const Herosection = () => {
             <h1 data-aos="fade-up">Best Exclusive Chair<br />Your Collection.</h1>
             <p data-aos="fade-left">A Theme for Woocommerce, E-commerce, Business.</p>
             <div className="btn-group">
-              <a href="#" data-aos="fade-right" className="btn">Shop Now</a>
-              <a href="#" data-aos="fade-left" className="btn outline">Buy Now</a>
-            </div>
+  <a href="#" data-aos="fade-right" className="btn">
+    <span>Shop Now</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path 
+        d="M5 12h14M13 5l7 7-7 7" 
+        stroke="currentColor"
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+    </svg>
+  </a>
+
+  <a href="#" data-aos="fade-left" className="btn outline">
+    <span>Buy Now</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path 
+        d="M5 12h14M13 5l7 7-7 7"
+        stroke="currentColor"
+        strokeWidth="2" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+    </svg>
+  </a>
+</div>
+
           </div>
           <div className="chair">
             <img data-aos="fade-up" src="/chair.png" alt="chair" />
@@ -102,9 +126,21 @@ const Herosection = () => {
             <h1 data-aos="fade-up">Luxury Sofa Chair<br />For Your Home.</h1>
             <p data-aos="fade-right">Soft fabric with ergonomic design.</p>
             <div className="btn-group">
-              <a href="#" data-aos="fade-right" className="btn">Shop Now</a>
-              <a href="#" data-aos="fade-left" className="btn outline">Buy Now</a>
-            </div>
+  <a href="#" data-aos="fade-right" className="btn">
+    <span className="btn-">Shop Now</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path d="M5 12h14M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+
+  <a href="#" data-aos="fade-left" className="btn outline">
+    <span>Buy Now</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <path d="M5 12h14M13 5l7 7-7 7" stroke="#12B07F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
+
           </div>
           <div className="chair">
             <img data-aos="fade-up" src="/chair3.png" alt="chair" />

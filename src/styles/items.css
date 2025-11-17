@@ -1,0 +1,258 @@
+/* ========================= */
+/* Slider Section Title */
+.slider-title {
+    margin-top: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111111;
+  text-align: center;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+
+/* Slider Section Description */
+.slider-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 50px 0 60px 0;
+}
+
+.slider-track {
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  width: 77%;
+  overflow: hidden;
+  justify-content: center;
+  margin-left: 10px;
+  padding-right: 25px;
+}
+
+.slider-card {
+  width: 250px;
+  height: 350px;
+  background: #000;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.35s ease;
+  cursor: pointer;
+  position: relative;
+}
+.slider-card-title {
+  background: #0f0f0f;
+  padding: 18px 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+
+.slider-card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.slider-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+/* REMOVE OLD INVISIBLE HOVER */
+.slider-hover {
+  display: none !important;
+}
+
+.slider-nav {
+     background: #12B07F;
+    color: white;
+    border: none;
+    font-size: 25px;
+    width: 50px;
+  
+    height: 50px;
+    border-radius: 90px;
+    cursor: pointer;
+    transition: background .3s;
+}
+/* ========================= */
+/* NEW HOVER PANEL (Desktop + Mobile unified) */
+.card-hover-panel {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #12B07F;
+  text-align: center;
+  padding: 18px 10px;
+  transform: translateY(100%);
+  transition: transform 0.35s ease-in-out;
+  color: #fff;
+}
+
+.slider-card:hover .card-hover-panel {
+  transform: translateY(0%);
+}
+
+.card-hover-panel h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-hover-panel p {
+  margin: 5px 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Icons Row */
+.card-hover-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.card-hover-icons button {
+  width: 35px;
+  height: 35px;
+  margin-top: auto;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Initial state: hidden and shifted down */
+.card-hover-panel h3,
+.card-hover-panel p,
+.card-hover-icons {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+/* On hover: fade in and slide up */
+.slider-card:hover .card-hover-panel h3,
+.slider-card:hover .card-hover-panel p,
+.slider-card:hover .card-hover-icons {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Icon hover effect */
+.card-hover-icons button:hover {
+  background: #222;
+}
+
+/* ========================= */
+/* RESPONSIVE CARD SLIDER */
+@media screen and (max-width: 600px) {
+
+    
+
+
+  .slider-wrapper {
+    position: relative;
+    margin-left: 15px;
+  }
+
+  
+
+  .slider-track {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 50px;
+    justify-content: flex-start !important;
+    align-items: stretch;
+  }
+
+  .slider-card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;    
+    width: 100%;
+    height: 420px;
+    margin: 0;
+    
+  }
+
+    .slider-card-title {
+    background: #0f0f0f; /* ✅ keep same dark title background */
+    padding: 18px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .slider-card {
+  width: 250px;
+  height: 350px;
+  background: #000;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.35s ease;
+  cursor: pointer;
+  position: relative;
+}
+.slider-card-title {
+  background: #0f0f0f;
+  padding: 18px 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+  .slider-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fafafa;
+    padding: 0;
+  }
+
+  /* NAV BUTTONS (only show on hover) */
+ /* NAV BUTTONS FIX FOR MOBILE */ .prev-nav, .next-nav { display: flex; /* always visible */ justify-content: center; align-items: center; position: absolute; top: 50%; transform: translateY(-50%); z-index: 50; width: 45px; height: 45px; font-size: 22px; border-radius: 50%; background: #12B07F; color: white; cursor: pointer; } .prev-nav { left: -10px; } .next-nav { right: 10px; }
+
+  /* Hide mobile scrollbar */
+  .slider-track::-webkit-scrollbar {
+      display: none;
+  }
+  .slider-track {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+}
